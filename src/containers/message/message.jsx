@@ -40,7 +40,7 @@ function getLastMsgs(chatMsgs, userid) {
         return m2.create_time - m1.create_time
 
     })
-    console.log(lastMsgs)
+    // console.log(lastMsgs)
     return lastMsgs
 }
 class Message extends Component {
@@ -48,6 +48,7 @@ class Message extends Component {
     render() {
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
+
         //对chatMsgs按chat_id进行分组
         const lastMsgs = getLastMsgs(chatMsgs, user._id)
         return (
@@ -55,8 +56,11 @@ class Message extends Component {
                 {lastMsgs.map(msg => {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
                     const targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
-                    const header = targetUser.header ? `/images/${targetUser.header}.jpg` : null
+                    console.log(users)
                     console.log(targetUser)
+
+                    const header = targetUser.header ? `/images/${targetUser.header}.jpg` : null
+
                     return (
                         <Item
                             key={msg._id}
