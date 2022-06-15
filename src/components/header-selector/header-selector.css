@@ -1,0 +1,10 @@
+.selectHeader{
+    display: inline-block;
+    height: 10%;
+    width: 10%;
+}
+.selectHeader img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}

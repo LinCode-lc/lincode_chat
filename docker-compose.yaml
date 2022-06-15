@@ -1,0 +1,12 @@
+version: "3"
+services:
+  nginx-app:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - 443:443
+    volumes:
+      - "/home/nginx.conf:/etc/nginx/conf.d/default.conf"
+      - "/home/linweifan.xyz_bundle.crt:/etc/nginx/ssl/linweifan.xyz_bundle.crt"
+      - "/home/linweifan.xyz.key:/etc/nginx/ssl/linweifan.xyz.key"

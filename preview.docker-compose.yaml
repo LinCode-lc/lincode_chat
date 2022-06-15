@@ -1,0 +1,12 @@
+version: "3"
+services:
+  findjob-dev:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - 80:80
+    volumes:
+      - "/home/findjob_dev_nginx.conf:/etc/nginx/conf.d/default.conf"
+      - "/home/linweifan.xyz_bundle.crt:/etc/nginx/ssl/linweifan.xyz_bundle.crt"
+      - "/home/linweifan.xyz.key:/etc/nginx/ssl/linweifan.xyz.key"
