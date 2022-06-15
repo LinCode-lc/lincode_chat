@@ -56,6 +56,7 @@ class Message extends Component {
                 {lastMsgs.map(msg => {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
                     const targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
+                    console.log("test")
                     console.log(users)
                     console.log(targetUser)
 
