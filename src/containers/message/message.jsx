@@ -92,6 +92,7 @@ class Message extends Component {
                                 targetUser = item
                             }
                         })
+                        console.log(targetUser)
                     }
 
 
@@ -110,7 +111,7 @@ class Message extends Component {
                             arrow='horizontal'
                             onClick={() => this.props.history.push(`/chat/${targetUserId}`)}
                         >
-                            {users[msg.to === user._id ? msg.from : msg.to].username}
+                            {targetUser.username}
                             <Brief>
                                 {msg.content}
 
