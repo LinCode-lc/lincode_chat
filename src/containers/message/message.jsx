@@ -45,7 +45,21 @@ function getLastMsgs(chatMsgs, userid) {
     return lastMsgs
 }
 class Message extends Component {
-
+    componentDidMount() {
+        //即这时候有新用户注册，需要更新用户列表
+        const { user } = this.props
+        const { users, chatMsgs } = this.props.chat
+        chatMsgs.map(msg => {
+            if (msg.to === user._id && !users[msg.from]) {
+                console.log(msg.from)
+                if (user.type == "dashen") {
+                    this.props.getUserList("laoban")
+                } else {
+                    this.props.getUserList("dashen")
+                }
+            }
+        })
+    }
     render() {
 
 
@@ -55,22 +69,15 @@ class Message extends Component {
 
         //对chatMsgs按chat_id进行分组
         const lastMsgs = getLastMsgs(chatMsgs, user._id)
+
         return (
             <List style={{ marginTop: 50, marginBottom: 50 }}>
                 {lastMsgs.map(msg => {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
                     let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
-                    //即这时候有新用户注册，需要更新用户列表
 
-                    if (!targetUser) {
-                        console.log(msg.to)
-                        // console.log(this.props)
-                        //传true表示只更新用户列表不用更新消息列表
-                        this.props.getUserList()
-                        targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
-                        console.log("testtttaAAbcddd")
-                        console.log(targetUser)
-                    }
+
+
 
 
                     // console.log(users)
