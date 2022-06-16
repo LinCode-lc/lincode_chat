@@ -12,7 +12,7 @@ const Brief = List.Item.Brief
 function getLastMsgs(chatMsgs, userid) {
     let lastMsgObjs = {}
     chatMsgs.forEach(element => {
-        console.log(element)
+        // console.log(element)
         if (element.to === userid && !element.read) {
             element.unReadCount = 1
         } else {
@@ -62,15 +62,15 @@ class Message extends Component {
                     let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
                     //即这时候有新用户注册，需要更新用户列表
                     if (!targetUser) {
-                        console.log(this.props)
+                        // console.log(this.props)
                         //传true表示只更新用户列表不用更新消息列表
                         this.props.getUser(true)
                         targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
                     }
 
-                    console.log("testtttaAAbcddd")
-                    console.log(users)
-                    console.log(targetUser)
+                    // console.log("testtttaAAbcddd")
+                    // console.log(users)
+                    // console.log(targetUser)
 
                     const header = targetUser.header ? `/images/${targetUser.header}.jpg` : null
 

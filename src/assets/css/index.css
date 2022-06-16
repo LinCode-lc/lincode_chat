@@ -1,9 +1,14 @@
+.app-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
 .error-msg {
   color: red;
   text-align: center;
   font-size: 18px;
 }
 .am-tab-bar {
+  max-width: 400px;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -17,17 +22,17 @@
   text-align: right;
 }
 .sticky-header {
+  max-width: 400px;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 9;
 }
-/* .header2 {
-  display: inline-block;
+.header2 {
   width: 10%;
 }
 .header2 img {
   height: 100%;
   width: 100%;
   border-radius: 50%;
-} */
+}

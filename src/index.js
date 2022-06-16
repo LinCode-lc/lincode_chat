@@ -14,17 +14,19 @@ import store from './redux/store'
 // import './test/socketio_test'
 ReactDOM.render(
 
-  <Provider store={store}>
-    <HashRouter>
-      <Switch>
-        <Route path="/login" component={(props) => <Login {...props} />}></Route>
-        <Route path="/register" component={(props) => <Register {...props} />}></Route>
-        <Route path="/" component={(props) => <Main {...props} />}></Route>  {/* 默认组件 */}
+  <div className='app-container'>
+    <Provider store={store}>
+      <HashRouter>
+        <Switch>
+          <Route path="/login" component={(props) => <Login {...props} />}></Route>
+          <Route path="/register" component={(props) => <Register {...props} />}></Route>
+          <Route path="/" component={(props) => <Main {...props} />}></Route>  {/* 默认组件 */}
 
 
-      </Switch>
-    </HashRouter>
-  </Provider>
+        </Switch>
+      </HashRouter>
+    </Provider>
+  </div>
   ,
   document.getElementById('root')
 );
