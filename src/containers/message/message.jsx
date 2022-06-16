@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Badge, List } from 'antd-mobile';
+import { getUser } from '../../redux/action'
 import './message.css'
 const Item = List.Item
 const Brief = List.Item.Brief
@@ -100,5 +101,5 @@ export default connect(
         user: state.user,
         chat: state.chat
     }),
-    {}
+    { getUser }
 )(Message)
