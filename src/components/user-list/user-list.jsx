@@ -12,7 +12,7 @@ class UserList extends Component {
     }
     render() {
         const { userList } = this.props
-        console.log(userList)
+        // console.log(userList)
         return (
             <WingBlank style={{ marginBottom: 50, marginTop: 50 }}>
                 <QueueAnim type="scale" >

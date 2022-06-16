@@ -10,7 +10,7 @@ class Dashen extends Component {
     }
     render() {
         const userList = this.props.userList
-        console.log(userList)
+        //console.log(userList)
         return (
             <div>
 

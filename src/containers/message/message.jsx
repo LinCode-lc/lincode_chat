@@ -50,6 +50,8 @@ class Message extends Component {
         //即这时候有新用户注册，需要更新用户列表
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
+        console.log(p)
+        console.log(users)
         chatMsgs.map(msg => {
             if (msg.to === user._id && !users[msg.from]) {
                 console.log("bbb")
@@ -66,9 +68,11 @@ class Message extends Component {
 
 
         //
+        const { userList } = this.props
+
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
-
+        console.log(users)
         //对chatMsgs按chat_id进行分组
         const lastMsgs = getLastMsgs(chatMsgs, user._id)
 
@@ -76,7 +80,7 @@ class Message extends Component {
             <List style={{ marginTop: 50, marginBottom: 50 }}>
                 {lastMsgs.map(msg => {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
-                    let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
+                    let targetUser = msg.to === user._id ? userList[msg.from] : userList[msg.to]
 
 
 
