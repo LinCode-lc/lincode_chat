@@ -69,10 +69,10 @@ class Message extends Component {
 
         //
         const { userList } = this.props
-
+        console.log(111)
+        console.log(userList)
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
-        console.log(users)
         //对chatMsgs按chat_id进行分组
         const lastMsgs = getLastMsgs(chatMsgs, user._id)
 
@@ -117,7 +117,8 @@ class Message extends Component {
 export default connect(
     state => ({
         user: state.user,
-        chat: state.chat
+        chat: state.chat,
+        userList: state.userList
     }),
     { getUserList }
 )(Message)

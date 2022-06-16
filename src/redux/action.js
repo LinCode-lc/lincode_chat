@@ -81,7 +81,7 @@ export const register = (user) => {
     return async dispatch => {
         let result = await reqRegister({ username, password, type })
         result = result.data
-        console.log(result)
+        // console.log(result)
         if (result.code === 0) {
             getMsgList(dispatch, result.data._id)
             dispatch(authSuccess(result.data))
@@ -93,7 +93,7 @@ export const register = (user) => {
 
 //登录异步action
 export const login = (user) => {
-    console.log(user)
+    // console.log(user)
     const { username, password } = user
     //做表单的前台检查，如果不通过，返回一个errorMsg的同步action
     if (!username) {
@@ -106,11 +106,11 @@ export const login = (user) => {
     //异步action返回的是一个函数
     return async dispatch => {
         const response = await reqLogin(user)
-        console.log(response)
+        // console.log(response)
         const result = response.data
         if (result.code === 0) {
             getMsgList(dispatch, result.data._id)
-            console.log(result.data)
+            // console.log(result.data)
             dispatch(authSuccess(result.data))
         } else {
             dispatch(errorMsg(result.msg))

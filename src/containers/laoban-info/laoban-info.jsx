@@ -20,7 +20,7 @@ class LaobanInfo extends Component {
         this.setState({
             header
         })
-        console.log(this.setState)
+        // console.log(this.setState)
     }
     handleChange = (name, value) => {
         this.setState({

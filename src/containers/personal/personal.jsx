@@ -25,7 +25,7 @@ class Personal extends Component {
         ])
     }
     render() {
-        console.log(this.props.user)
+        // console.log(this.props.user)
         const { username, info, salary, header, post, company } = this.props.user
         return (
             <div style={{ marginBottom: 50, marginTop: 50 }}>

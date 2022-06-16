@@ -17,9 +17,9 @@ class Chat extends Component {
         const content = this.state.content.trim()
         //发送消息
         if (content) {
-            console.log(from)
-            console.log(to)
-            console.log(content)
+            // console.log(from)
+            // console.log(to)
+            // console.log(content)
             this.props.sendMsg({ from, to, content })
             this.setState({ content: '', isShow: false })
         }
