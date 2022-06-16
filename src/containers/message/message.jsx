@@ -63,10 +63,10 @@ class Message extends Component {
                     //即这时候有新用户注册，需要更新用户列表
 
                     if (!targetUser) {
-
+                        console.log(msg.to)
                         // console.log(this.props)
                         //传true表示只更新用户列表不用更新消息列表
-                        this.props.getUserList(true)
+                        this.props.getUserList()
                         targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
                         console.log("testtttaAAbcddd")
                         console.log(targetUser)
