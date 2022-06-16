@@ -132,15 +132,15 @@ export const updateUser = (user) => {
 }
 
 //获取用户异步action
-export const getUser = (onlyGetUser = false) => {
+export const getUser = () => {
     return async dispatch => {
         const response = await reqUser()
         const result = response.data
-        console.log(result)
+
         if (result.code === 0) {
-            if (!onlyGetUser) {
-                getMsgList(dispatch, result.data._id)
-            }
+
+            getMsgList(dispatch, result.data._id)
+
 
             dispatch(receiveUser(result.data))
         } else {

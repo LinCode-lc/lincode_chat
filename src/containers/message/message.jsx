@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Badge, List } from 'antd-mobile';
-import { getUser } from '../../redux/action'
+import { getUserList } from '../../redux/action'
 import './message.css'
 const Item = List.Item
 const Brief = List.Item.Brief
@@ -61,14 +61,18 @@ class Message extends Component {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
                     let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
                     //即这时候有新用户注册，需要更新用户列表
+
                     if (!targetUser) {
+
                         // console.log(this.props)
                         //传true表示只更新用户列表不用更新消息列表
-                        this.props.getUser(true)
+                        this.props.getUserList(true)
                         targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
+                        console.log("testtttaAAbcddd")
+                        console.log(targetUser)
                     }
 
-                    // console.log("testtttaAAbcddd")
+
                     // console.log(users)
                     // console.log(targetUser)
 
@@ -101,5 +105,5 @@ export default connect(
         user: state.user,
         chat: state.chat
     }),
-    { getUser }
+    { getUserList }
 )(Message)
