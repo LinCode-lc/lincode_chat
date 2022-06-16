@@ -83,9 +83,16 @@ class Message extends Component {
             <List style={{ marginTop: 50, marginBottom: 50 }}>
                 {lastMsgs.map(msg => {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
-                    let targetUser = msg.to === user._id ? userList[msg.from] : userList[msg.to]
+                    let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
 
 
+                    if (!targetUser) {
+                        userList.map(item => {
+                            if (item._id == msg.from) {
+                                targetUser = item
+                            }
+                        })
+                    }
 
 
 
