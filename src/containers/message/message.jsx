@@ -46,6 +46,9 @@ function getLastMsgs(chatMsgs, userid) {
 class Message extends Component {
 
     render() {
+
+
+        //
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
 
@@ -55,7 +58,14 @@ class Message extends Component {
             <List style={{ marginTop: 50, marginBottom: 50 }}>
                 {lastMsgs.map(msg => {
                     const targetUserId = msg.to === user._id ? msg.from : msg.to
-                    const targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
+                    let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
+                    //即这时候有新用户注册，需要更新用户列表
+                    if (!targetUser) {
+                        //传true表示只更新用户列表不用更新消息列表
+                        this.props.getUser(true)
+                        targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
+                    }
+
                     console.log("testtttaAAbcddd")
                     console.log(users)
                     console.log(targetUser)
