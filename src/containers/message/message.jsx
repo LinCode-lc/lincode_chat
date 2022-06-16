@@ -46,11 +46,13 @@ function getLastMsgs(chatMsgs, userid) {
 }
 class Message extends Component {
     componentDidMount() {
+        console.log("aaa")
         //即这时候有新用户注册，需要更新用户列表
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
         chatMsgs.map(msg => {
             if (msg.to === user._id && !users[msg.from]) {
+                console.log("bbb")
                 console.log(msg.from)
                 if (user.type == "dashen") {
                     this.props.getUserList("laoban")

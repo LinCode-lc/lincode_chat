@@ -28,11 +28,8 @@
   width: 100%;
   z-index: 9;
 }
-.header2 {
-  width: 10%;
-}
-.header2 img {
-  height: 100%;
-  width: 100%;
+.header2 .header2 {
+  width: 13%;
+  margin-right: 8px;
   border-radius: 50%;
 }

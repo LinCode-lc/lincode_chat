@@ -95,8 +95,9 @@ class Chat extends Component {
                             return (
                                 <Item
                                     key={msg._id}
-                                    thumb={<div className="header2"><img src={header} /></div>}
+
                                 >
+                                    <img src={header} className="header2" />
                                     {msg.content}
                                 </Item>
                             )
