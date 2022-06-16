@@ -155,6 +155,7 @@ export const getUserList = (type) => {
         const response = await reqUserList(type);
 
         const result = response.data
+        console.log("aaa")
         console.log(result)
         if (result.code === 0) {
             dispatch(receiveUserList(result.data))
