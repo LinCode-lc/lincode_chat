@@ -45,35 +45,11 @@ function getLastMsgs(chatMsgs, userid) {
     return lastMsgs
 }
 class Message extends Component {
-    componentDidMount() {
-        console.log("dddddd")
-        //即这时候有新用户注册，需要更新用户列表
-        const { user } = this.props
-        const { users, chatMsgs } = this.props.chat
-        const { userList } = this.props
-        console.log(users)
-        console.log(userList)
 
-        chatMsgs.map(msg => {
-            if (msg.to === user._id && !users[msg.from]) {
-                console.log("bbb")
-                console.log(msg.from)
-                if (user.type == "dashen") {
-                    this.props.getUserList("laoban")
-                } else {
-                    this.props.getUserList("dashen")
-                }
-            }
-        })
-        console.log(userList)
-    }
     render() {
 
 
-        //
-        const { userList } = this.props
-        console.log(111)
-        console.log(userList)
+
         const { user } = this.props
         const { users, chatMsgs } = this.props.chat
         //对chatMsgs按chat_id进行分组
@@ -86,20 +62,6 @@ class Message extends Component {
                     let targetUser = msg.to === user._id ? users[msg.from] : users[msg.to]
 
 
-                    if (!targetUser) {
-                        userList.map(item => {
-                            if (item._id == msg.from) {
-                                targetUser = item
-                            }
-                        })
-                        console.log(targetUser)
-                    }
-
-
-
-
-                    // console.log(users)
-                    // console.log(targetUser)
 
                     const header = targetUser.header ? `/images/${targetUser.header}.jpg` : null
 

@@ -32,6 +32,10 @@ function initIO(dispatch, userid) {
             console.log("客户端接收到的消息", chatMsg)
             //只有当chatMsg是与当前用户相关的消息，才会去分发同步action
             if (userid === chatMsg.from || userid === chatMsg.to) {
+                //如果消息的发送者没在users列表（可能是个新用户），需要向后端请求新的用户列表
+                if (!store.getState().chat.users[chatMsg.from]) {
+                    getMsgList(dispatch, userid)
+                }
                 dispatch(receiveMsg(chatMsg, userid))
             }
 
