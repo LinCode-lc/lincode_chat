@@ -44,6 +44,8 @@ function getLastMsgs(chatMsgs, userid) {
     // console.log(lastMsgs)
     return lastMsgs
 }
+
+
 class Message extends Component {
 
     render() {
