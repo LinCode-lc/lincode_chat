@@ -22,7 +22,7 @@ import {
 } from '../api'
 //引入客户端io
 import { io } from 'socket.io-client'
-
+import store from './store'
 function initIO(dispatch, userid) {
     // 1创建对象之前：判断对象是否已经创建，没创建才创建
     if (!io.socket) {
