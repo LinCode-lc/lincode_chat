@@ -35,6 +35,7 @@ function initIO(dispatch, userid) {
                 //如果消息的发送者没在users列表（可能是个新用户），需要向后端请求新的用户列表
                 if (!store.getState().chat.users[chatMsg.from]) {
                     getMsgList(dispatch, userid)
+
                 } else {
                     dispatch(receiveMsg(chatMsg, userid))
                 }
